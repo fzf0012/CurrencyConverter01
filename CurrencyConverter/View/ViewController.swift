@@ -27,7 +27,7 @@ class ViewController: UIViewController {
             usdAmount = usd
             performSegue(withIdentifier: "goToSecondVC", sender: self)
         } else {
-            errorLabel.text = "invalid input"
+            errorLabel.text = "enter integer"
             // This block will clear the error message after 2s
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.errorLabel.text = ""

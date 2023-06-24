@@ -41,6 +41,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		127ACB1E2A47698A006ACBD9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				12F403AF2A464337007A418F /* Currency.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		127ACB1F2A476995006ACBD9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12F4039D2A462C57007A418F /* ViewController.swift */,
+				12F403AD2A462D31007A418F /* SecondViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		12F4038D2A462C57007A418F = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +77,10 @@
 		12F403982A462C57007A418F /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				127ACB1F2A476995006ACBD9 /* View */,
+				127ACB1E2A47698A006ACBD9 /* Model */,
 				12F403992A462C57007A418F /* AppDelegate.swift */,
 				12F4039B2A462C57007A418F /* SceneDelegate.swift */,
-				12F403AF2A464337007A418F /* Currency.swift */,
-				12F4039D2A462C57007A418F /* ViewController.swift */,
-				12F403AD2A462D31007A418F /* SecondViewController.swift */,
 				12F4039F2A462C57007A418F /* Main.storyboard */,
 				12F403A22A462C59007A418F /* Assets.xcassets */,
 				12F403A42A462C59007A418F /* LaunchScreen.storyboard */,
