@@ -1,19 +1,44 @@
-//
-//  ViewController.swift
-//  CurrencyConverter
-//
-//  Created by Frank Fukuchi on 6/23/23.
-//
 
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var usdTextField: UITextField!
+    
+    @IBOutlet var errorLabel: UITextField!
+    
+    @IBOutlet weak var euroSwitch: UISwitch!
+    
+    @IBOutlet weak var yenSwitch: UISwitch!
+    
+    @IBOutlet weak var poundSwitch: UISwitch!
+    
+    @IBOutlet weak var yuanSwitch: UISwitch!
+    
+    var usdAmount: Int = 0
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+       override func viewDidLoad() {
+           super.viewDidLoad()
+           self.title = "Currency Converter"
+       }
 
+       @IBAction func convertButtonPressed(_ sender: UIButton) {
+           if let usd = Int(usdTextField.text!) {
+               usdAmount = usd
+               performSegue(withIdentifier: "goToSecondVC", sender: self)
+           } else {
+               errorLabel.text = "Please enter a valid integer value for USD."
+           }
+       }
 
-}
-
+       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "goToSecondVC" {
+               let destinationVC = segue.destination as! SecondViewController
+               destinationVC.usdAmount = usdAmount
+               destinationVC.euroSwitchIsOn = euroSwitch.isOn
+               destinationVC.yenSwitchIsOn = yenSwitch.isOn
+               destinationVC.poundSwitchIsOn = poundSwitch.isOn
+               destinationVC.yuanSwitchIsOn = yuanSwitch.isOn
+           }
+       }
+   }
