@@ -22,14 +22,18 @@ class ViewController: UIViewController {
            self.title = "Currency Converter"
        }
 
-       @IBAction func convertButtonPressed(_ sender: UIButton) {
-           if let usd = Int(usdTextField.text!) {
-               usdAmount = usd
-               performSegue(withIdentifier: "goToSecondVC", sender: self)
-           } else {
-               errorLabel.text = "Please enter a valid integer value for USD."
-           }
-       }
+    @IBAction func convertButtonPressed(_ sender: UIButton) {
+        if let usd = Int(usdTextField.text!) {
+            usdAmount = usd
+            performSegue(withIdentifier: "goToSecondVC", sender: self)
+        } else {
+            errorLabel.text = "invalid input"
+            // This block will clear the error message after 2s
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.errorLabel.text = ""
+            }
+        }
+    }
 
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "goToSecondVC" {
